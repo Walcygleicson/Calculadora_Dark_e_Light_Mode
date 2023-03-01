@@ -1,0 +1,309 @@
+@charset "UTF-8";
+
+:root {
+    --ColorGray: rgba(169, 161, 168, 0.918);
+    --ColorOrange: rgba(255, 68, 0, 0.734);
+
+    /* cores Dark Mode */
+    --Dark-Background:rgb(22, 15, 23);
+    --Dark-Calc-Background:rgba(37, 26, 39, 0.495);
+    --Dark-Calc-Shadows:
+        .7rem .7rem 1.4rem rgba(10, 5, 10, 0.804),
+        inset .2rem .2rem .2rem rgba(55, 41, 58, 0.414),
+        inset .4rem .4rem .5rem .2rem rgba(37, 26, 39, 0.414),
+        inset -.2rem -.2rem .2rem rgba(24, 13, 24, 0.804);
+
+
+
+    --Dark-Button-IdleShadow:
+        inset 0rem -.2rem .2rem rgba(24, 13, 24, 0.804),
+        inset -.2rem 0rem .2rem rgba(24, 13, 24, 0.804),
+        inset 0rem .2rem .2rem rgba(55, 41, 58, 0.414),
+        inset .2rem 0rem .2rem rgba(55, 41, 58, 0.414);
+    --Dark-Button-ActiveShadow:
+        inset 0rem .2rem .2rem rgba(24, 13, 24, 0.804),
+        inset .2rem 0rem .2rem rgba(24, 13, 24, 0.804),
+        inset 0rem -.2rem .2rem rgba(55, 41, 58, 0.414),
+        inset -.2rem 0rem .2rem rgba(55, 41, 58, 0.414);
+    --Dark-EqualButton-IdleShadow:
+        inset 0rem -.2rem .2rem rgba(69, 22, 4, 0.76),
+        inset -.2rem 0rem .2rem rgba(69, 22, 4, 0.76),
+        inset 0rem .2rem .2rem rgba(248, 99, 45, 0.734),
+        inset .2rem 0rem .2rem rgba(248, 99, 45, 0.734);
+    --Dark-EqualButton-ActiveShadow:
+        inset 0rem .2rem .2rem rgba(69, 22, 4, 0.76),
+        inset .2rem 0rem .2rem rgba(69, 22, 4, 0.76),
+        inset 0rem -.2rem .2rem rgba(248, 99, 45, 0.734),
+        inset -.2rem 0rem .2rem rgba(248, 99, 45, 0.734);
+
+    /* Cores Light Mode */
+    --Light-Background: rgba(235, 234, 236, 0.908);
+    --Light-Calc-Background: rgba(245, 244, 246, 0.53);
+    --Light-Calc-Shadows:
+        .7rem .7rem 1.4rem rgba(144, 142, 144, 0.525),
+        inset .2rem .2rem .2rem rgba(248, 247, 247, 0.625),
+        inset .4rem .4rem .5rem .2rem rgba(255, 255, 255, 0.382),
+        inset -.2rem -.2rem .2rem rgba(189, 189, 190, 0.6);
+    --Light-Button-IdleShadow:
+        inset 0rem -.2rem .2rem rgba(189, 189, 190, 0.327),
+        inset -.2rem 0rem .2rem rgba(189, 189, 190, 0.282),
+        inset 0rem .2rem .2rem rgba(255, 255, 255, 0.538),
+        inset .2rem 0rem .2rem rgba(255, 255, 255, 0.708);
+    --Light-Button-ActiveShadow:
+        inset 0rem .2rem .2rem rgba(189, 189, 190, 0.327),
+        inset .2rem 0rem .2rem rgba(189, 189, 190, 0.282),
+        inset 0rem -.2rem .2rem rgba(255, 255, 255, 0.538),
+        inset -.2rem 0rem .2rem rgba(255, 255, 255, 0.708);
+    --Light-EqualButton-IdleShadow:
+        inset 0rem -.2rem .2rem rgba(206, 56, 2, 0.352),
+        inset -.2rem 0rem .2rem rgba(206, 56, 2, 0.477),
+        inset 0rem .2rem .2rem rgba(250, 169, 139, 0.941),
+        inset .2rem 0rem .2rem rgba(250, 169, 139, 0.941);
+    --Light-EqualButton-ActiveShadow:
+        inset 0rem .2rem .2rem rgba(206, 56, 2, 0.352),
+        inset .2rem 0rem .2rem rgba(206, 56, 2, 0.477),
+        inset 0rem -.2rem .2rem rgba(250, 169, 139, 0.941),
+        inset -.2rem 0rem .2rem rgba(250, 169, 139, 0.941);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.material-symbols-rounded {
+    display: grid;
+    place-items: center;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 380,
+        'GRAD' 0,
+        'opsz' 48;
+}
+
+.container {
+    position: relative;
+    width: fit-content;
+    height: 500px;
+    padding: 3em 2em 2em 2em;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.display {
+    text-align: end;
+}
+
+.display > div {
+    padding: 5px;
+}
+
+.display > .calculo {
+    font-size: 1.7em;
+}
+
+.display > .result {
+    font-size: 1.3em;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-areas: 
+        'set-keys set-keys set-keys op-keys'
+        'numb-keys numb-keys numb-keys op-keys'
+        'numb-keys numb-keys numb-keys op-keys'
+        'numb-keys numb-keys numb-keys op-keys'
+        'numb-keys numb-keys numb-keys op-keys';
+    height: fit-content;
+    gap: 1em;
+}
+
+
+.set-keys {
+    grid-area: set-keys;
+    width: fit-content;
+    display: flex;
+    gap: 1.5em;
+}
+
+
+.numb-keys {
+    grid-area: numb-keys;
+    display: grid;
+    width: fit-content;
+    grid-template-columns: repeat(3, auto);
+    gap: 1em 1.5em;
+    
+}
+
+.operator-keys {
+    grid-area: op-keys;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    
+}
+
+.calc-buttons {
+    color: var(--ColorGray);
+    font-size: 1.2em;
+    font-weight: lighter;
+    display: grid;
+    cursor: pointer;
+    place-content: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    user-select: none;
+}
+
+.set-keys > div, .operator-keys > div, .numb-keys > div:last-child{
+    color: var(--ColorOrange);
+ }
+ .set-keys > div:nth-child(2) > span {
+    rotate: 90deg;
+ }
+
+.calc-buttons:active {
+    transition: .2s;
+    font-size: 1.17em;
+}
+
+.calc-buttons:active > span {
+    font-size: 1.182em;
+}
+
+
+.operator-keys div:last-child{
+    color: var(--ColorGray);
+    background: var(--ColorOrange);
+}
+
+
+/* Config do botão de Dark & Light Mode */
+.toggle-container {
+    position: absolute;
+    top: 25px;
+    width: 3em;
+    border-radius: 20px;
+}
+
+.toggle-button {
+    color: var(--ColorGray);
+    width: fit-content;
+    padding: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-button > span {
+    font-size: 1em;
+}
+
+/* Config das cores do temas */
+/*  */
+/* Dark Mode */
+
+.Dark-Mode {
+    background: var(--Dark-Background);
+}
+
+.Dark-Mode .container {
+    background: var(--Dark-Calc-Background);
+    box-shadow: var(--Dark-Calc-Shadows);
+}
+
+
+.Dark-Mode .calc-buttons {
+    box-shadow: var(--Dark-Button-IdleShadow);
+}
+
+
+.Dark-Mode .calc-buttons:active {
+    box-shadow: var(--Dark-Button-ActiveShadow);
+}
+
+.Dark-Mode .operator-keys > div:last-child {
+    border: 1px solid rgba(27, 6, 41, 0.763);
+    box-shadow: var(--Dark-EqualButton-IdleShadow);
+}
+
+.Dark-Mode .operator-keys > div:last-child:active {
+    border: 1px solid rgba(48, 35, 50, 0.495);
+    box-shadow: var(--Dark-EqualButton-ActiveShadow);
+}
+
+.Dark-Mode .toggle-container {
+    background: var(--Dark-Calc-Background);
+    border: 1px solid rgba(73, 71, 71, 0.179);
+    box-shadow: var(--Dark-Button-ActiveShadow);
+}
+
+.Dark-Mode .toggle-button {
+    border: 1px solid rgba(80, 78, 78, 0.427);
+    box-shadow: var(--Dark-Button-IdleShadow);
+}
+
+.Dark-Mode .display {
+    text-shadow: 0px 0px 3px rgba(5, 161, 5, 0.801);
+    color: rgb(157, 189, 156);
+}
+
+/*  Light Mode*/
+
+.Light-Mode {
+    background: var(--Light-Background);
+}
+
+.Light-Mode .container {
+    background: var(--Light-Calc-Background);
+    box-shadow: var(--Light-Calc-Shadows);
+}
+
+.Light-Mode .calc-buttons {
+    box-shadow:var(--Light-Button-IdleShadow);
+}
+
+.Light-Mode .calc-buttons:active {
+    box-shadow: var(--Light-Button-ActiveShadow);
+}
+
+.Light-Mode .operator-keys > div:last-child {
+    border: 1px solid rgba(222, 222, 223, 0.908);
+    box-shadow: var(--Light-EqualButton-IdleShadow);
+}
+
+.Light-Mode .operator-keys > div:last-child:active {
+    border: 1px solid rgba(247, 247, 249, 0.908);
+    box-shadow: var(--Light-EqualButton-ActiveShadow);
+}
+
+.Light-Mode .toggle-container {
+    background: var(--Light-Calc-Background);
+    border: 1px solid rgba(195, 193, 193, 0.179);
+    box-shadow: var(--Light-Button-ActiveShadow);
+}
+
+.Light-Mode .toggle-button {
+    border: 1px solid rgba(178, 176, 176, 0.179);
+    box-shadow: var(--Light-Button-IdleShadow);
+}
+
+.Light-Mode .display {
+    text-shadow: 0px 0px 3px rgba(62, 145, 62, 0.801);
+    color: rgb(87, 103, 86);
+}
+
+.Light-Mode .operator-keys >div:last-child {
+    color: white;
+}
